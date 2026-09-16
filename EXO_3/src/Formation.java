@@ -11,7 +11,11 @@ public class Formation{
         this.matieres = new HashMap<Matiere, Integer>();
     }
 
-    public String getIdentifiant(){
+    public String getIdentifiant() {
+        return identifiant;
+    }
+
+    public Map<Matiere, Integer> getMatieres() {
         return matieres;
     }
 
