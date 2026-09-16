@@ -1,4 +1,7 @@
-• *.iml
-• .idea
-• *.class
-• out
+# class
+out/
+*.class
+
+# config intelliJ
+.idea/
+*.iml
