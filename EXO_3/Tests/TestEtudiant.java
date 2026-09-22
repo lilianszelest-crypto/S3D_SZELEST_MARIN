@@ -1,5 +1,7 @@
 import org.junit.Test;
 
+import static org.junit.Assert.assertEquals;
+
 public class TestEtudiant {
 
     @Test
@@ -9,8 +11,8 @@ public class TestEtudiant {
         formation.ajouterMatiere(maths , 3);
         Identite identite = new Identite("12345" , "Dupont" , "Jean");
         Etudiant etudiant = new Etudiant(identite, formation);
-        etudiant.ajouterNote(math,15);
-        assertEquals(15.0, etudiant.calculerMoyenne(math), 0.01);
+        etudiant.ajouterNote(maths,15);
+        assertEquals(15.0, etudiant.calculerMoyenne(maths), 0.01);
     }
 
     @Test
@@ -46,7 +48,7 @@ public class TestEtudiant {
         Identite identite = new Identite("12345", "Dupont", "Jean");
         Etudiant etudiant = new Etudiant(identite, formation);
         etudiant.ajouterNote(maths, 10);
-        etudiant.ajouterNote(info, 16);
+        etudiant.ajouterNote(ArchiReseaux, 16);
         assertEquals(12.0, etudiant.calculerMoyenneGenerale(), 0.01);
     }
 }
