@@ -53,7 +53,7 @@ public class TestEtudiant {
     }
 
     @Test
-    public void testMoyenneGeneraleAvecTroisCoefficients() {
+    public void testMoyenneGAvecTroisCoefficients() {
         Formation formation = new Formation("BUT1");
         Matiere maths = new Matiere("Mathematiques");
         Matiere info = new Matiere("Informatique");
@@ -70,7 +70,7 @@ public class TestEtudiant {
     }
 
     @Test
-    public void testMoyenneGeneraleSansNote() {
+    public void testMoyenneGSansNote() {
         Formation formation = new Formation("BUT1");
         Matiere maths = new Matiere("Mathematiques");
         formation.ajouterMatiere(maths, 3);
@@ -80,7 +80,7 @@ public class TestEtudiant {
     }
 
     @Test
-    public void testMoyenneGeneraleMatiereSansNoteIgnoree() {
+    public void testMoyenneGMatiereSansNoteIgnoree() {
         Formation formation = new Formation("BUT1");
         Matiere maths = new Matiere("Mathematiques");
         Matiere info = new Matiere("Informatique");
@@ -93,5 +93,22 @@ public class TestEtudiant {
         etudiant.ajouterNote(maths, 10);
         etudiant.ajouterNote(info, 14);
         assertEquals(58.0 / 5, etudiant.calculerMoyenneGenerale(), 0.01);
+    }
+
+    @Test
+    public void testMoyenneGValeursLimites() {
+        Formation formation = new Formation("BUT1");
+        Matiere maths = new Matiere("Mathematiques");
+        Matiere sport = new Matiere("Sport");
+        formation.ajouterMatiere(maths, 4);
+        formation.ajouterMatiere(sport, 1);
+        Identite identite = new Identite("12345", "Dupont", "Jean");
+        Etudiant etudiant = new Etudiant(identite, formation);
+        etudiant.ajouterNote(maths, 0);
+        etudiant.ajouterNote(maths, 20);
+        etudiant.ajouterNote(maths, 10);
+        etudiant.ajouterNote(sport, 20);
+        assertEquals(10.0, etudiant.calculerMoyenne(maths), 0.01);
+        assertEquals(12.0, etudiant.calculerMoyenneGenerale(), 0.01);
     }
 }
